@@ -67,3 +67,26 @@ for i in range(n):
     result = max(result,min_value)
 
 print('this is the max value' ,result)
+
+##4번 1이될 때까지
+
+n= 623
+k = 12
+rep = 0
+
+while n != 1:
+    ## 나머지가 0이면 k로 나누고 rep 1 추가
+    if n % k == 0:
+        n = n / k
+        rep += 1
+    ## 나머지가 0이 아니면 k로 나누고 나머지만큼 n에서 빼고 횟수 n 증가
+    else:
+        if n > k:
+            na = n % k
+            n = n - na
+            rep += na
+        ## n < k 가 되면 n이 1이 될 때까지 배주기
+        else:
+            rep += (n-1)
+            n = 1
+print(rep)

@@ -47,3 +47,23 @@ data.sort()
 result = (data[n-1] * 3 + data[n-2]) * (m//(k+1)) + data[n-1] * (m%(k+1))
 
 print('효율적인 결과', result)
+
+
+## 3번 숫자 카드 게임
+
+## input data
+n = 3
+m = 3
+first = [3,1,2]
+second = [4,1,4]
+third = [2,2,2]
+data_list = [first,second,third]
+
+result = 0
+for i in range(n):
+    data = data_list[i]
+
+    min_value = min(data)
+    result = max(result,min_value)
+
+print('this is the max value' ,result)

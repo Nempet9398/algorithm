@@ -56,3 +56,57 @@ for g in go:
         result += 1
 
 print(result)
+
+
+## 4 게임개발
+
+# /n,m = map(int, input().split())
+m = 4
+n = 4
+all_map = [[0] * m for i in range(n)]
+
+x,y, direction = map(int,input().split())
+
+all_map[x][y] = 1
+
+loc_array = []
+# for i in range(n):
+#     array.append(list(map(int, input().split)))
+loc_array.append([1,1,1,1])
+loc_array.append([1,0,0,1])
+loc_array.append([1,1,0,1])
+loc_array.append([1,1,1,1])
+
+print('야')
+## 북 동 남 서 정의
+dx = [-1, 0, 1, 0]
+dy = [0, 1, 0 , -1]
+
+def turn_left():
+
+    global direction
+    direction -= 1
+    if direction == -1:
+        direction = 3
+
+
+
+#
+# count = 1
+# turn_time = 0
+#
+# while True:
+#     turn_left():
+#     nx = x + dx[direction]
+#     ny = y + dy[direction]
+#
+#     if d[nx][ny] == 0 and array[nx][ny] ==0:
+#         d[nx][ny]=1
+#         x = nx
+#         y = ny
+#         count += 1
+#         turn_time = 0
+#         continue
+#
+#     else:
+#         turn_time += 1

@@ -61,7 +61,7 @@ graph =[
 ]
 
 def DFS(graph,v,visited):
-    visited[v] = factorial_number
+    visited[v] = True
     print(v, end=' ')
     #다른 노드 재귀방문
     for i in graph[v]:
@@ -71,3 +71,68 @@ def DFS(graph,v,visited):
 visited = [False] * 9
 
 DFS(graph,1,visited)
+
+
+print('\n')
+
+#5 BFS 예제
+
+from collections import deque
+
+def BFS(graph, start,visited):
+    queue = deque([start])
+
+    visited[start] = factorial_number
+
+    while queue:
+
+        v = queue.popleft()
+        print(v, end=' ')
+        for i in graph[v]:
+            if not visited[i]:
+                queue.append(i)
+                visited[i] = True
+
+visited =[False] * 9
+
+BFS(graph, 1, visited)
+
+print('\n')
+
+#6 음료수 얼려 먹기
+n= 6
+m = 7
+graph = [
+[0,0,0,1,1,1,0],
+[0,0,0,0,1,0,0],
+[1,1,0,1,1,1,0],
+[0,0,1,1,1,1,1],
+[0,0,1,1,0,0,0],
+[1,1,0,1,1,1,1]
+]
+
+def ice_dfs(x,y):
+    if x <= -1 or x >= n or y <= -1 or y >=m:
+        return False
+
+    if graph[x][y] == 0:
+        graph[x][y] = 1
+
+        ice_dfs(x-1,y)
+        ice_dfs(x+1,y)
+        ice_dfs(x,y+1)
+        ice_dfs(x,y-1)
+
+        return True
+
+    return False
+
+result = 0
+
+for i in range(n):
+    for j in range(m):
+
+        if ice_dfs(i,j) == True:
+            result += 1
+
+print(result , ' : 아이스크림 개수')
